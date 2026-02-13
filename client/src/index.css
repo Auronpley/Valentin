@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Press+Start+2P&family=Fredoka:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Romantic Pink Palette */
+  --background: 350 100% 98%;      /* Very light pink */
+  --foreground: 339 60% 45%;       /* Deep rose text */
+  
+  --primary: 339 80% 60%;          /* Vibrant pink */
+  --primary-foreground: 350 100% 98%;
+  
+  --secondary: 340 70% 90%;        /* Soft pink button bg */
+  --secondary-foreground: 339 60% 45%;
+  
+  --muted: 340 30% 96%;
+  --muted-foreground: 339 40% 60%;
+  
+  --accent: 320 70% 60%;           /* Purple-pink accent */
+  --accent-foreground: 350 100% 98%;
+  
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+  
+  --border: 339 30% 90%;
+  --input: 339 30% 90%;
+  --ring: 339 80% 60%;
+  
+  --radius: 1rem;
+
+  /* Font Variables */
+  --font-display: 'Fredoka', sans-serif;
+  --font-pixel: 'Press Start 2P', cursive;
+  --font-hand: 'Architects Daughter', cursive;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/30;
+    font-family: var(--font-display);
+    background-image: 
+      radial-gradient(at 0% 0%, hsla(339, 80%, 90%, 0.3) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, hsla(320, 70%, 90%, 0.3) 0px, transparent 50%);
+    min-height: 100vh;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-hand);
+    @apply font-bold tracking-tight text-primary;
+  }
+}
+
+/* Custom Utilities for this specific design */
+.pixel-grid {
+  image-rendering: pixelated;
+}
+
+.heart-beat {
+  animation: beat 1.5s infinite ease-in-out;
+}
+
+@keyframes beat {
+  0% { transform: scale(1); }
+  15% { transform: scale(1.15); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.15); }
+  60% { transform: scale(1); }
+}
+
+.glow-text {
+  text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+}
